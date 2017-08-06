@@ -12,10 +12,10 @@ import {
   View
 } from 'react-native';
  import {StackNavigator} from 'react-navigation';
- import Accounts from './Components/Accounts.js'
-
+ import Accounts from './Components/Accounts.js';
+ 
 const monies = StackNavigator({
-  Accounts: {screen: Accounts}
+  Accounts: {screen: Accounts},
   
 
 }, {
