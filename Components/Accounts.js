@@ -39,6 +39,15 @@ class Accounts extends Component{
                     placeholder="Enter an Amount"
                     choice = "text"
                 />
+
+                {/*
+                    Display Submit button 
+                */}
+                <Form 
+                    header="SUBMIT"
+                    namme = "Submit"
+                    choice = "submit"
+                />
             
         </View>
         )

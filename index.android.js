@@ -14,6 +14,8 @@ import {
  import {StackNavigator} from 'react-navigation';
  import Accounts from './Components/Accounts.js';
  
+ console.disableYellowBox = true
+ 
 const monies = StackNavigator({
   Accounts: {screen: Accounts},
   

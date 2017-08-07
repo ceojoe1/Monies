@@ -1,5 +1,5 @@
  import React, { Component } from 'react';
- import { AppRegistry, Text ,TextInput, View, BackHandler, TouchableOpacity, Picker, StyleSheet, Image, Dimensions, Alert} from 'react-native';
+ import { AppRegistry, ToastAndroid, Text ,TextInput, View, BackHandler, TouchableOpacity, Picker, StyleSheet, Image, Dimensions, Alert} from 'react-native';
  import { NavigationActions } from 'react-navigation';
  import DateTimePicker from 'react-native-modal-datetime-picker';
 
@@ -32,6 +32,7 @@ class Input extends Component {
        let f_placeholder = this.props.placeholder;
        let f_header = this.props.header; 
        let f_choice = this.props.choice;
+       let f_name = this.props.name;
        let form_component = <View/>; 
 
         switch (f_choice) {
@@ -90,6 +91,24 @@ class Input extends Component {
                                 />
                             </View>
                         break;
+
+                        case "submit":
+                            form_component = 
+                                <View style={styles.container}>
+                                
+                                    {/*
+                                        Submit button to send data to the database
+                                    */}
+                                    <TouchableOpacity style={styles.button} onPress = { () =>
+                                        {
+                                            console.log("SUBMIT PRESSES")
+                                        }
+                                    }>
+                                        <Text style={styles.submit}>SUBMIT</Text>
+                                    </TouchableOpacity>
+
+                            </View>
+                            break;
                         
                 
                     default:
@@ -109,7 +128,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         paddingLeft: 25,
         paddingRight:25,
-        paddingBottom: 2,
+        paddingBottom: 10,
         marginLeft: 20,
         marginRight: 20,
     },
@@ -118,7 +137,6 @@ const styles = StyleSheet.create({
         marginLeft:5,
         marginRight:5,
         borderRadius: 5,
-        textAlign: 'center',
         height: 50,
         backgroundColor: 'rgba(200,200,200,0.3)',
         fontSize: 20, 
@@ -132,7 +150,6 @@ const styles = StyleSheet.create({
     
     date: {
         alignSelf: 'stretch',
-        textAlign:'center',
         marginLeft:5,
         marginRight: 5,
         borderRadius: 5,
@@ -143,8 +160,22 @@ const styles = StyleSheet.create({
         paddingTop: 15,
     },
     button: {
+        alignSelf: 'stretch',
         height: 50,
     
+    },
+    submit: {
+        alignSelf: 'stretch',
+        alignContent: 'center', 
+        textAlign: 'center', 
+        marginLeft: 20,
+        marginRight: 20,
+        height: 50,
+        backgroundColor: '#1f92d4',
+        borderRadius: 20,
+        marginBottom: 40,
+        fontSize: 35,
+        color: 'white'
     }
 
 
